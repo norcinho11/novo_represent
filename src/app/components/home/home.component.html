@@ -1,0 +1,130 @@
+<div class="portfolio-container">
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="profile-info">
+          <h1 class="name">{{ personalInfo.name }}</h1>
+          <p class="title">Software Engineer & Full Stack Developer</p>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            {{ personalInfo.location }}
+          </p>
+          <div class="contact-info">
+            <a href="tel:{{ personalInfo.phone }}" class="contact-link">
+              <i class="fas fa-phone"></i>
+              {{ personalInfo.phone }}
+            </a>
+            <a href="mailto:{{ personalInfo.email }}" class="contact-link">
+              <i class="fas fa-envelope"></i>
+              {{ personalInfo.email }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- About Section -->
+      <section class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="card">
+          <p class="about-text">{{ personalCharacteristics }}</p>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item" *ngFor="let job of experience">
+            <div class="card experience-card">
+              <div class="job-header">
+                <h3 class="job-title">{{ job.company }}</h3>
+                <div class="job-meta">
+                  <span class="job-period">{{ job.period }}</span>
+                  <span class="job-location">{{ job.location }}</span>
+                </div>
+              </div>
+              <div class="job-technologies" *ngIf="job.technologies.length > 0">
+                <span class="skill-tag" *ngFor="let tech of job.technologies">{{ tech }}</span>
+              </div>
+              <ul class="job-responsibilities">
+                <li *ngFor="let responsibility of job.responsibilities">{{ responsibility }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+          <div class="card education-card" *ngFor="let edu of education">
+            <div class="education-header">
+              <h3 class="education-title">{{ edu.institution }}</h3>
+              <span class="education-period">{{ edu.period }}</span>
+            </div>
+            <p class="education-degree">{{ edu.degree }}</p>
+            <p class="education-location">{{ edu.location }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+          <div class="card skills-card">
+            <h3 class="skills-category">Programming Languages</h3>
+            <div class="skills-tags">
+              <span class="skill-tag" *ngFor="let lang of technicalSkills.programmingLanguages">{{ lang }}</span>
+            </div>
+          </div>
+          
+          <div class="card skills-card">
+            <h3 class="skills-category">Technologies & Tools</h3>
+            <div class="skills-tags">
+              <span class="skill-tag" *ngFor="let tech of technicalSkills.technologies">{{ tech }}</span>
+            </div>
+          </div>
+          
+          <div class="card skills-card">
+            <h3 class="skills-category">Driving License</h3>
+            <div class="skills-tags">
+              <span class="skill-tag" *ngFor="let license of technicalSkills.drivingLicense">{{ license }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Languages Section -->
+      <section class="section">
+        <h2 class="section-title">Language Skills</h2>
+        <div class="card">
+          <div class="languages-grid">
+            <div class="language-item" *ngFor="let lang of languages">
+              <div class="language-info">
+                <h3 class="language-name">{{ lang.language }}</h3>
+                <span class="language-level">{{ lang.level }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 {{ personalInfo.name }}. All rights reserved.</p>
+    </div>
+  </footer>
+</div> 
